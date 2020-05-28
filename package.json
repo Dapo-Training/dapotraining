@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Olasiyan/dapotraining/issues"
   },
-  "homepage": "https://github.com/Olasiyan/dapotraining#readme"
+  "homepage": "https://github.com/Olasiyan/dapotraining#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
