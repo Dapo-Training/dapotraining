@@ -1,6 +1,6 @@
+//Area of a trainagle is half base times height. a is height and b is basegit
 let a;
 let b;
-//Area of a trainagle is half base times height. a is height and b is basegit
 function AreaTriangle (a,b){
     return a*b*0.5;
 }
