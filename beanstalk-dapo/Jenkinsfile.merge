@@ -18,7 +18,7 @@ pipeline {
         }
         stage('Deploy') {
           steps {
-            withAWS(credentials: 'Jenkins S3', region: 'us-east-1') {
+            withAWS(credentials: 'dapotrainingbucket', region: 'global') {
               s3Delete bucket: 'dapotrainingbucket', path: '**/*'
               s3Upload acl: 'Private', bucket: 'dapotrainingbucket', file: 'beanstalk-dapo.zip', workingDir: '../'
               s3Delete bucket: 'dapotrainingbucket', path: 'beanstalk-demo.zip'
