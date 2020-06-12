@@ -12,5 +12,5 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'app/index.html'));
 });
 
-console.log(`Starting server on port ${port}. Go to http://localhost:${port}`);
+console.log(`Dapo is Starting server on port ${port}. Go to http://localhost:${port}`);
 app.listen(port);
