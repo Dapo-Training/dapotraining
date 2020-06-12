@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const favicon = require('serve-favicon');
-const port = process.env.PORT;
+const port = 8080;
 
 
 app.use(express.static(path.join(__dirname, 'app')));
