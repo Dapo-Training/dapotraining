@@ -12,18 +12,17 @@ pipeline {
           steps {
             sh '''
               echo "Building files"
-              zip -r ../beanstalk-dapo.zip ./
+              zip -r ../beanstalk-demo.zip ./
             '''
           }
         }
         stage('Deploy') {
           steps {
-            withAWS(credentials: 'Jenkins', region: 'eu-west-2') {
-              s3Delete bucket: 'dapotrainingbucket', path: '**/*'
-              s3Upload acl: 'Private', bucket: 'dapotrainingbucket', file: 'beanstalk-dapo.zip', workingDir: '../'
-              s3Delete bucket: 'dapotrainingbucket', path: 'beanstalk-demo.zip'
-              s3Delete bucket: 'dapotrainingbucket', path: 'beanstalk-dapo.zip'
-              s3Upload bucket: 'dapotrainingbucket', file: '../beanstalk-dapo.zip'
+            withAWS(credentials: 'Jenkins S3', region: 'us-east-1') {
+              s3Delete bucket: 'sdev-lambda', path: '**/*'
+              s3Upload acl: 'Private', bucket: 'sdev-lambda', file: 'beanstalk-demo.zip', workingDir: '../'
+              s3Delete bucket: 'sdev-lambda', path: 'beanstalk-demo.zip'
+              s3Upload bucket: 'sdev-lambda', file: '../beanstalk-demo.zip'
             }
           }
         }

@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const favicon = require('serve-favicon');
-const port = 8080;
+const port = process.env.PORT;
 
 
 app.use(express.static(path.join(__dirname, 'app')));
@@ -12,5 +12,5 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'app/index.html'));
 });
 
-console.log(`Dapo is Starting server on port ${port}. Go to http://localhost:${port}`);
+console.log(`Starting server on port ${port}. Go to http://localhost:${port}`);
 app.listen(port);
