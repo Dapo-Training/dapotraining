@@ -9,7 +9,7 @@ app.use(express.static(path.join(__dirname, 'app')));
 app.use(favicon(path.join(__dirname, 'app', 'favicon.ico')));
 
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'app/index.html'));
+  res.sendFile(path.join(__dirname, 'beanstalk-dapo/app/index.html'));
 });
 
 console.log(`Starting server on port ${port}. Go to http://localhost:${port}`);
