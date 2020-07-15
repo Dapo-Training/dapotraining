@@ -2,34 +2,28 @@
 //the user is then prompted to input a guess number. If the user input matches with guess number, 
 //the program will display a message "Good Work" otherwise display a message "Not matched".
 
-const prompt = require('prompt');
-// This json object is used to configure what data will be retrieved from command line.
-const prompt_attributes = [
-  {
-    // The fist input text is assigned to username variable.
-    Name: 'guess',
-    // dont hide the number
-    hidden: false
-  }
-];
-prompt.start();
-// Prompt and get user input then display those data in console.
-prompt.get(prompt_attributes, function (err, result) {
-  if (err) {
-      console.log(err);
-      return 1;
-  }else {
-      console.log('Command-line received data:');
-  }
+
+const prompts = require('prompts');
+//const guess = prompt('Guess a number?');
+
+(async () => {
+  const guess = await prompts({
+    type: 'number',
+    name: 'answer',
+    message: 'Pick a number between 1 and 10:',
+    validate: value => value > 10 ? `Number must be less than 10` : true
   });
-function getRandomInteger (min, max) {
-  return Math.floor (Math.random() * (max - min) + min)+1;
-}
-const a = result.guess;
-const b = getRandomInteger(1,10);
-console.log(b);
-if (a == b) {
-    console.log ("Good Work! The random number WAS:" + b);
-  } else {
-    console.log ("Not Matched The random number was:" + b);
-  };
+  function getRandomInteger (min, max) {
+    return Math.floor (Math.random() * (max - min) + min)+1;
+  }
+  let a = guess.answer;
+  let b = getRandomInteger(1,10);
+  console.log(b);
+  if (a == b) {
+      console.log ("Good Work! The random number WAS:" + b);
+    } else {
+      console.log ("Not Matched The random number was:" + b);
+    }
+})();
+
+
