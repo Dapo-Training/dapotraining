@@ -44,3 +44,8 @@ let today = new Date();
   //} 
   //} 
 //console.log("Current Time : "+mm/dd/yyyy  + " : " + minute + " : " + second);
+
+
+
+
+console.log(Date.constructor);

@@ -14,3 +14,5 @@ newarray.splice(0,0,c)
 console.log(newarray);
 console.log(c);
 }
+
+
